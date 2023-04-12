@@ -1,0 +1,70 @@
+/* 
+++++++++++++++++++
+Universal
+++++++++++++++++++
+*/
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* 
++++++++++++++++++++++++++++
+Design of Calculator Body
++++++++++++++++++++++++++++
+*/
+.container{
+    background-color: #D3D3D3;
+    width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    border-radius: 20px;
+    border: 4px solid grey;
+    padding: 30px 0;
+}
+.container h1 {
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+.container .main{
+    width: 90%;
+    margin: auto;
+}
+.container .btn-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.btn-container .btn {
+    width: 100%;
+    font-size: 50px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    background-color: #A9A9A9;
+    border: 1px solid black;
+}
+.back-button{
+    grid-column: 4;
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+}
+
+.container input {
+    display: block;
+    font-size: 50px;
+    width: 94%;
+    margin-top: 20px;
+    padding: 15px 14px;
+    border-radius: 20px;
+    border: 2px solid grey;
+}
+
+.container .screen {
+    text-align: right;
+    background-color: #FAEBD7;
+}
