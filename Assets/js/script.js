@@ -8,22 +8,41 @@ let div, modulus;
 for (item of buttons) {
   item.addEventListener("click", (e) => {
     buttonText = e.target.innerText;
-    screenValue = screen.value
+    screenValue = screen.value;
     if (buttonText == "C") {
       screenValue = "";
       screen.value = screenValue;
     } else if (buttonText == "X") {
-      buttonText = "*";
-      screenValue += buttonText;
-      screen.value = screenValue;
+      if (screenValue) {
+        let opraters = ["+", "-", "*", "/", "%"];
+        if (
+          !opraters.includes(String(screen.value).slice(-1)) ||
+          !opraters.includes("*")
+        ) {
+          buttonText = "*";
+          screenValue += buttonText;
+          screen.value = screenValue;
+        }
+      }
     } else if (buttonText == "=") {
       screen.value = eval(screen.value);
     } else if (buttonText == "<-") {
-        screenValue = String(screen.value ).slice(0,-1);
+      screenValue = String(screen.value).slice(0, -1);
       screen.value = screenValue;
     } else {
-      screenValue += buttonText;
-      screen.value = screenValue;
+      let opraters = ["+", "-", "*", "/", "%", "."];
+      if (screenValue) {
+        if (
+          !opraters.includes(String(screen.value).slice(-1)) ||
+          !opraters.includes(buttonText)
+        ) {
+          screenValue += buttonText;
+          screen.value = screenValue;
+        }
+      } else if (!opraters.includes(buttonText)) {
+        screenValue += buttonText;
+        screen.value = screenValue;
+      }
     }
   });
 }
