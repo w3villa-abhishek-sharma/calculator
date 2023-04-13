@@ -7,8 +7,16 @@ let screenValue = "";
 let div, modulus;
 for (item of buttons) {
   item.addEventListener("click", (e) => {
+    if (
+      screen.value == "ERROR" ||
+      screen.value == "NaN" ||
+      screen.value == "Infinity"
+    ) {
+      screen.value = "";
+    }
     buttonText = e.target.innerText;
     screenValue = screen.value;
+
     if (buttonText == "C") {
       screenValue = "";
       screen.value = screenValue;
@@ -25,7 +33,11 @@ for (item of buttons) {
         }
       }
     } else if (buttonText == "=") {
-      screen.value = eval(screen.value);
+      try {
+        screen.value = eval(screen.value);
+      } catch (err) {
+        screen.value = "ERROR";
+      }
     } else if (buttonText == "<-") {
       screenValue = String(screen.value).slice(0, -1);
       screen.value = screenValue;
